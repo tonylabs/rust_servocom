@@ -1,0 +1,19 @@
+ServoCom
+Copyright 2025 The ServoCom Authors
+
+This product is a derivative work based on rustypot
+(https://github.com/pollen-robotics/rustypot), originally developed and
+maintained by Pollen Robotics (https://pollen-robotics.com).
+
+Both the original work and this derivative are licensed under the
+Apache License, Version 2.0 (the "License"). You may obtain a copy of
+the License in the LICENSE file distributed with this work, or at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Modifications have been made to the original source files. In accordance
+with Section 4 of the License, all original copyright, patent, trademark,
+and attribution notices from the source form have been retained.
+
+We sincerely thank the rustypot authors and the Pollen Robotics team for
+releasing their work as open source, which made this project possible.

@@ -1,0 +1,10 @@
+/target
+/Cargo.lock
+
+__pycache__
+
+# JetBrains
+/.idea
+
+# macOS Finder
+.DS_Store
