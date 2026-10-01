@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 — 2026-10-02
+
+### Added
+
+- `HD1910` Feetech servo (`servo::feetech::hd1910`, `Hd1910PyController`), model number 7946. The register map is the STS3215's; `offset` (31), `mode` (33) and 34–39 are not yet verified against an HD1910 control table.
+- Dynamixel protocol 2.0 Fast Sync Read (instruction 0x8A): `DynamixelProtocolHandler::fast_sync_read`, `with_fast_sync_read` / `set_fast_sync_read` / `fast_sync_read_enabled` on the handler, and `with_fast_sync_read` / `set_fast_sync_read` on every v2 controller (Python: `set_fast_sync_read`). When enabled, `sync_read*` sends one instruction and parses the single combined status packet, checking every motor's running CRC. Needs firmware that implements it (XL330: v46+).
+
+### Fixed
+
+- Dynamixel protocol 2.0 byte stuffing. Instruction packets whose parameters contain `FF FF FD` are now stuffed, and status packets are de-stuffed after the CRC check. Previously a read whose data happened to contain that pattern (e.g. a present current of -1 followed by a 0xFD byte) was mis-parsed.
+
 ## 1.1.0 — 2026-05-14
 
 ### Breaking

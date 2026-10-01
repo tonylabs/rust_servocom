@@ -76,6 +76,26 @@ fn main() {
 }
 ```
 
+HD1910 speaks the same FT-SCS protocol at 1 Mbps over TTL single-bus, and `scan` identifies it by model number 7946. Its register map is the STS3215's: the identity, limit, torque and present-state registers are confirmed on hardware, while `offset` (31), `mode` (33) and 34–39 are not yet verified against an HD1910 control table.
+
+```rust
+use servocom::servo::feetech::hd1910::HD1910Controller;
+use std::time::Duration;
+
+fn main() {
+    let serial_port = serialport::new("/dev/ttyACM0", 1_000_000)
+        .timeout(Duration::from_millis(1000))
+        .open()
+        .unwrap();
+
+    let mut c = HD1910Controller::new()
+            .with_serial_port(serial_port);
+
+    let pos = c.sync_read_present_position(&vec![1, 2]).unwrap();
+    println!("Motors present position: {:?}", pos);
+}
+```
+
 SM40BL belongs to the SMS magnetic-encoder family. Note the different default baud rate (115200) and that it uses RS485:
 
 ```rust

@@ -36,6 +36,9 @@ crate::register_servo!(
     servo: (feetech, STS3215,
         (STS3215, 2307)
     ),
+    servo: (feetech, HD1910,
+        (HD1910, 7946)
+    ),
     servo: (feetech, SCS0009,
         (SCS0009, 1280)
     ),
